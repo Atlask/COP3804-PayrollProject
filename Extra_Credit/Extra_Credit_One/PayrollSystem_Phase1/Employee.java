@@ -9,6 +9,7 @@ import java.util.ArrayList;
  * 
  * @author Mayelin
  */
+
 public abstract class Employee
 {
     // instance variables
