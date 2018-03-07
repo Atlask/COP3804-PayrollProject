@@ -19,36 +19,24 @@ public class PayrollSystem_Phase2
             System.out.println(checkElement.toString());
         }
     }
-    public static ArrayList<Paycheck> parseEmployeePaychecks(int empID, String paycheckData)
-    {
+    public static ArrayList<Paycheck> parseEmployeePaychecks(int empID, String paycheckData) {
         ArrayList<Paycheck> paycheckElements = new ArrayList<Paycheck>();
 
-        String paycheckInfo[]= paycheckData.split("#");
-        double netAmmount;
-        double grossAmount;
-        double taxAmount;
-        double bonusAmount;
+        String paycheckInfo[] = paycheckData.split("#");
+        for (String p : paycheckInfo) {
+            String[] arr = p.split(":");
+            double grossAmount = Double.parseDouble (arr[2]);
+            double taxAmount = Double.parseDouble (arr[3]);
+            double bonusAmount = Double.parseDouble (arr[4]);
+
+            double netAmount = grossAmount - taxAmount;
+            Paycheck pc = new Paycheck(empID, arr[0], arr[1], grossAmount, taxAmount, bonusAmount, netAmount);
+
+            paycheckElements.add(pc);
+
+        }
+        return paycheckElements;
+    }}
 
 
 
-
-        netAmmount = grossAmount – taxAmount + bonusAmount
-    }
-
-}
-
-/*
-
-1-	Declare an ArrayList of Paycheck elements and initialize to an empty list.
-2-	Split the paycheckData parameter on the # to get each paycheck information.
-3-	Write a For loop to iterate through the list of paycheck strings, which should have the following format: periodBeginDate:periodEndDate:grossAmount:taxAmount:bonusAmount
-4-	Calculate the netAmount to be: grossAmount – taxAmount + bonusAmount
-
-5-	Create a Paycheck object using the employee id passed in the first parameter and the data parsed from the second parameter.
-use the constructor from the paycheck class
-6-	Add the Paycheck object to the ArrayList that this method returns.
-7-	After the loop, return the ArrayList of Paycheck objects.
-* Write variables in method contained.
-* * Double.parseDouble("5.7)
-* when you read it, it'll be a string
-*/
