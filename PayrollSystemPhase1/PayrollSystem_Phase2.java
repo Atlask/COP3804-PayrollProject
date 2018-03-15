@@ -1,4 +1,6 @@
-package Extra_Credit.Extra_Credit_One.PayrollSystem_Phase1;
+package PayrollSystemPhase1;
+
+import Extra_Credit.Extra_Credit_One.PayrollSystem_Phase1.Paycheck;
 
 import java.util.ArrayList;
 
