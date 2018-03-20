@@ -18,6 +18,14 @@ import java.util.ArrayList;
             public Company(String companyName, ArrayList<Department> listOfdepartments) {
                 this.companyName = companyName;
                 this.listOfdepartments = listOfdepartments;
+                
+            ArrayList<Department> listOfdepartmentsCopy = new ArrayList<>(listOfdepartments);
+            if ( listOfdepartments != null){
+                
+                for (Department DepartmentElements : listOfdepartments)
+                    listOfdepartmentsCopy.add(new Department(DepartmentElements));
+            
+            }
             }
             
 
@@ -30,11 +38,17 @@ import java.util.ArrayList;
             }
 
             public ArrayList<Department> getListOfdepartments() {
-                return listOfdepartments;
+                ArrayList<Department> listOfDepartments = new ArrayList<>();
+            for (Department DepartmentElements : listOfdepartments)
+            listOfDepartments.add(new Department(DepartmentElements));
+            return listOfDepartments;
             }
 
             public void setDepartmentList(ArrayList<Department> listOfdepartments) {
-                this.listOfdepartments = listOfdepartments;
+                if(listOfdepartments != null){
+                for (Department DepartmentElements : listOfdepartments)
+                    listOfdepartments.add( new Department(DepartmentElements));
+                }
             }
             
 
@@ -44,20 +58,22 @@ import java.util.ArrayList;
                
                return hour;
             }
-
-    void addDepartment(Department dept_2) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    void addEmployeeToDepartment(int i, SalariedEmployee employee_7) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    void setDepartmentManager(int i, Manager manager_3) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+             
             
-        
+            public void addDepartment(Department listOfdepartmentsCopy){
+            listOfdepartments.add(new Department(listOfdepartmentsCopy));
+        }
+            
+            public void addEmployeeToDepartment (int deptID, Employee empObject){
+                
+                
+            }
+            
+            public void setDepartmentManager(int deptID, Manager manObject){
+                
+                
+            }
+    
     }
         
         

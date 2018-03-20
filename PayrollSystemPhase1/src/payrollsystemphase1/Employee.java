@@ -51,14 +51,7 @@ import java.util.ArrayList;
             for (Paycheck PaycheckElements : employee.listOfPaychecks)
                 listOfPaychecks.add(new Paycheck(PaycheckElements));
             
-            }
-            
-                  
-                  
-            
-                
-         
-            
+            }   
         
         }
         

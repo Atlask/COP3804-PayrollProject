@@ -41,11 +41,7 @@ package payrollsystemphase1;
             grossAmount = employee.grossAmount;
             taxAmount = employee.taxAmount;
             bonusAmount = employee.bonusAmount;
-            netAmount = employee.netAmount;
-                  
-                  
-            
-                
+            netAmount = employee.netAmount;        
             }
             
         }            

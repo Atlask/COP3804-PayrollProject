@@ -28,6 +28,13 @@ import java.util.ArrayList;
             this.departmentName = departmentName;
             this.departmentManager = departmentManager;
             this.listOfEmployees = listOfEmployees;
+            
+            ArrayList<Employee> listOfEmployeesCopy = new ArrayList<>(listOfEmployees);
+            if ( listOfEmployees != null){
+                
+                for (Employee EmployeeElements : listOfEmployees)
+                    listOfEmployeesCopy.add(new Employee(EmployeeElements));
+            }
         }
         
         public Department(Department employee) {
@@ -62,19 +69,27 @@ import java.util.ArrayList;
         }
 
         public ArrayList<Employee> getListOfEmployees() {
+            ArrayList<Employee> listOfEmployees = new ArrayList<>();
+            for (Employee EmployeekElements : listOfEmployees)
+            listOfEmployees.add(new Employee(EmployeeElements));
             return listOfEmployees;
         }
 
         public void setListOfEmployees(ArrayList<Employee> listOfEmployees) {
-            this.listOfEmployees = listOfEmployees;
+            if(listOfEmployees != null){
+                for (Employee EmployeeElements : listOfEmployees)
+                    listOfEmployees.add( new Employee(EmployeeElements));
         }
-
+        }
         public Manager getDepartmentManager() {
             return departmentManager;
         }
 
         public void setDepartmentManager(Manager departmentManager) {
-            this.departmentManager = departmentManager;
+            if(departmentManager != null){
+                for (Employee EmployeeElements : listOfEmployees)
+                    listOfEmployees.add(new Employee(EmployeeElements));
+            }
         }
 
         @Override
@@ -84,12 +99,33 @@ import java.util.ArrayList;
                    "\nDepartmentManager: " + departmentManager +
                    "\nList Of Employees: " + listOfEmployees;
         }
+        
+        public boolean equals(Department employee){
+            if (employee == null)
+                return false;
+                
+                return departmentName.equals(employee.departmentName);
+                 
+        }
+        
+        
+        public int compareTo(Department employee){
+           /*
+            if(this.departmentName== employee.departmentName)
+                return 0;
+            else if (this.departmentID > employee.departmentName)
+                return 1;
+            else
+                return -1;
+            */
+        }
 
-    void addEmployee(SalariedEmployee salariedEmployee) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    String compareTo(Department dept_2) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+        public void addEmployee(Employee employee){
+            listOfEmployees.add(new Employee(listOfEmployeesCopy));
+            
+            
+        }
+        
+        
+  
     }
